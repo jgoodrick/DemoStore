@@ -22,6 +22,7 @@
 		97199AF8279FA12C00048AB6 /* AvailableProductsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97199AF0279FA12C00048AB6 /* AvailableProductsFetcher.swift */; };
 		97199AF9279FA12C00048AB6 /* InAppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97199AF1279FA12C00048AB6 /* InAppStore.swift */; };
 		97199AFA279FA12C00048AB6 /* Verified.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97199AF2279FA12C00048AB6 /* Verified.swift */; };
+		9788972B27A0615F00D9260E /* TestProducts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9788972927A0615100D9260E /* TestProducts.plist */; };
 		97F2EB39279FA45E00AAD7B0 /* Products.plist in Resources */ = {isa = PBXBuildFile; fileRef = 97F2EB38279FA45E00AAD7B0 /* Products.plist */; };
 		97F2EB3B279FAC4D00AAD7B0 /* DemoStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97199AD0279FA04B00048AB6 /* DemoStore.framework */; platformFilter = ios; };
 		97F2EB3C279FAC4D00AAD7B0 /* DemoStore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 97199AD0279FA04B00048AB6 /* DemoStore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -86,6 +87,8 @@
 		97199AF0279FA12C00048AB6 /* AvailableProductsFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvailableProductsFetcher.swift; sourceTree = "<group>"; };
 		97199AF1279FA12C00048AB6 /* InAppStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InAppStore.swift; sourceTree = "<group>"; };
 		97199AF2279FA12C00048AB6 /* Verified.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Verified.swift; sourceTree = "<group>"; };
+		9788972827A05C1A00D9260E /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
+		9788972927A0615100D9260E /* TestProducts.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = TestProducts.plist; sourceTree = "<group>"; };
 		97F2EB38279FA45E00AAD7B0 /* Products.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Products.plist; sourceTree = "<group>"; };
 		97F2EB3A279FAC4500AAD7B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		97F2EB40279FADF300AAD7B0 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
@@ -191,6 +194,8 @@
 			isa = PBXGroup;
 			children = (
 				97199ADC279FA04B00048AB6 /* DemoStoreTests.swift */,
+				9788972927A0615100D9260E /* TestProducts.plist */,
+				9788972827A05C1A00D9260E /* Configuration.storekit */,
 			);
 			path = DemoStoreTests;
 			sourceTree = "<group>";
@@ -387,6 +392,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9788972B27A0615F00D9260E /* TestProducts.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -742,11 +748,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FQPNB63WTA;
 				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.1;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.goodrick.DemoStoreTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 			};
@@ -759,11 +764,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FQPNB63WTA;
 				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.1;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.goodrick.DemoStoreTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 			};

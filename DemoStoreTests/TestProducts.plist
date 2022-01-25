@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>com.firstgroup.product.monthly</string>
+	<string>com.firstgroup.product.yearly</string>
+	<string>com.secondgroup.product.monthly</string>
+	<string>com.secondgroup.product.weekly</string>
+	<string>com.secondgroup.product.yearly</string>
+</array>
+</plist>
