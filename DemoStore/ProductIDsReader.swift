@@ -7,19 +7,19 @@ final class ProductIDsReader {
     
     init(productsPlist: URL) throws {
         guard let plist = FileManager.default.contents(atPath: productsPlist.path) else {
-            throw DemoStoreError.missingProductsPlist
+            throw InAppStoreError.missingProductsPlist
         }
         
         guard let result = try? PropertyListSerialization.propertyList(from: plist, format: nil) else {
-            throw DemoStoreError.invalidProductsPlist
+            throw InAppStoreError.invalidProductsPlist
         }
         
         guard let ids = result as? [String] else {
-            throw DemoStoreError.invalidProductsPlist
+            throw InAppStoreError.invalidProductsPlist
         }
         
         guard !ids.isEmpty else {
-            throw DemoStoreError.emptyProductsPlist
+            throw InAppStoreError.emptyProductsPlist
         }
         
         self.ids = ids

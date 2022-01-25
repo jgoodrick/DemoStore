@@ -2,7 +2,7 @@
 import StoreKit
 
 struct UserEntitlementsFetcher {
-    func current() async -> Verified<Offerings<String>> {
+    func current() async -> Verified<Products<String>> {
         
         var consumables = [Transaction]()
         var nonConsumables = [Transaction]()
@@ -25,7 +25,7 @@ struct UserEntitlementsFetcher {
             }
         }
         
-        return Verified<Offerings<String>>.init(
+        return Verified<Products<String>>.init(
             wrapped: .init(
                 consumables: consumables.map({$0.productID}),
                 nonConsumables: nonConsumables.map({$0.productID}),

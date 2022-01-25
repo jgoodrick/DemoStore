@@ -5,7 +5,7 @@ struct AvailableProductsFetcher {
     
     let ids: [String]
     
-    func availableProducts() async -> Result<Offerings<Product>, DemoStoreError> {
+    func availableProducts() async -> Result<Products<Product>, InAppStoreError> {
         do {
             //Request products from the App Store using the identifiers defined in the Products.plist file.
             let storeProducts = try await Product.products(for: ids)
@@ -28,7 +28,7 @@ struct AvailableProductsFetcher {
                 }
             }
             
-            let offerings = Offerings<Product>.init(
+            let offerings = Products<Product>.init(
                 consumables: consumables,
                 nonConsumables: nonConsumables,
                 nonRenewables: nonRenewables,

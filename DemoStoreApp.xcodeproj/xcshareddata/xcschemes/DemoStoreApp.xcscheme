@@ -38,16 +38,6 @@
                ReferencedContainer = "container:DemoStoreApp.xcodeproj">
             </BuildableReference>
          </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "97199AB6279F9DEB00048AB6"
-               BuildableName = "DemoStoreAppUITests.xctest"
-               BlueprintName = "DemoStoreAppUITests"
-               ReferencedContainer = "container:DemoStoreApp.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

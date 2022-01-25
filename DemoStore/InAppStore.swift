@@ -1,71 +1,70 @@
 
-import Foundation
 import StoreKit
 
-final class InAppStore: ObservableObject {
+actor InAppStore {
+        
+    struct State {
+        var available: Products<Product> = .init()
+        var userEntitlements: Products<String> = .init()
+        var pendingPurchases: Products<String> = .init()
+    }
     
-    @Published public var available: Offerings<Product> = .init()
-    @Published public var userEntitlements: Offerings<String> = .init()
-    @Published public var pendingPurchases: Offerings<String> = .init()
+    var state: State = .init() {
+        didSet {
+            Task { await onStateChange(state) }
+        }
+    }
     
-    private let availableProductsFetcher: AvailableProductsFetcher
     private let userEntitlementsFetcher: UserEntitlementsFetcher
+    private let onStateChange: (State) async -> Void
     
     private var transactionsListener: TransactionsListener?
     
-    init(productsPlist: URL) throws {
+    init(productsPlist: URL, onStateChange: @escaping (State) async -> Void) async throws {
         
+        self.onStateChange = onStateChange
+        self.userEntitlementsFetcher = UserEntitlementsFetcher()
+
+        self.transactionsListener = TransactionsListener(
+            onEvent: { [weak self] in await self?.updateUsersCurrentEntitlements() }
+        )
+
         let assetReader = try ProductIDsReader(
             productsPlist: productsPlist
         )
         
-        self.availableProductsFetcher = AvailableProductsFetcher(ids: assetReader.ids)
-        self.userEntitlementsFetcher = UserEntitlementsFetcher()
+        let availableProductsFetcher = AvailableProductsFetcher(ids: assetReader.ids)
         
-        self.transactionsListener = TransactionsListener(
-            onEvent: { [weak self] in await self?.updateUsersCurrentEntitlements() }
-        )
-        
-        Task { [weak self] in
-            guard let self = self else { return }
-            let result = await self.availableProductsFetcher.availableProducts()
-            await self.handleAvailableProductsFetcher(result)
-        }
-    }
-    
-    @MainActor
-    private func handleAvailableProductsFetcher(_ result: Result<Offerings<Product>, DemoStoreError>) {
-        switch result {
+        switch await availableProductsFetcher.availableProducts() {
         case let .success(products):
-            self.available = products
-            updateUsersCurrentEntitlements()
+            
+            let currentEntitlements = await userEntitlementsFetcher.current().wrapped
+
+            let initialState = State.init(
+                available: products,
+                userEntitlements: currentEntitlements,
+                pendingPurchases: .init()
+            )
+            
+            self.state = initialState
+            await onStateChange(initialState)
         case let .failure(storeError):
-            assertionFailure(storeError.localizedDescription)
-            return
+            throw storeError
         }
     }
     
-    @MainActor
-    private func handleVerifiedTransactionEvent(_ transaction: Verified<Transaction>) {
-        updateUsersCurrentEntitlements()
+    private func updateUsersCurrentEntitlements() async {
+        self.state.userEntitlements = await userEntitlementsFetcher.current().wrapped
     }
     
-    @MainActor
-    private func updateUsersCurrentEntitlements() {
-        Task {
-            self.userEntitlements = await userEntitlementsFetcher.current().wrapped
-        }
-    }
-    
-    @MainActor
     public func purchase(_ product: Product) async throws {
         switch try await product.purchase() {
         case .success:
-            updateUsersCurrentEntitlements()
+            await updateUsersCurrentEntitlements()
         case .userCancelled:
             return
         case .pending:
-            userEntitlements.append(product.id, to: product.type)
+            state.userEntitlements.append(product.id, to: product.type)
         @unknown default:
             assertionFailure()
             return

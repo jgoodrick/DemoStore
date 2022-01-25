@@ -22,7 +22,7 @@ final class TransactionsListener {
             for await result in Transaction.updates {
                 do {
                     guard let transaction = result.verified else {
-                        throw DemoStoreError.failedVerification
+                        throw InAppStoreError.failedVerification
                     }
                     
                     // notify the parent that it's time to update the current entitlements

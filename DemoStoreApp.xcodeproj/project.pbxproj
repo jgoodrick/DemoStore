@@ -7,24 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		97199AA1279F9DEA00048AB6 /* DemoStoreAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97199AA0279F9DEA00048AB6 /* DemoStoreAppApp.swift */; };
+		97199AA1279F9DEA00048AB6 /* DemoStoreApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97199AA0279F9DEA00048AB6 /* DemoStoreApp.swift */; };
 		97199AA3279F9DEA00048AB6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97199AA2279F9DEA00048AB6 /* ContentView.swift */; };
 		97199AA5279F9DEB00048AB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97199AA4279F9DEB00048AB6 /* Assets.xcassets */; };
 		97199AA8279F9DEB00048AB6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97199AA7279F9DEB00048AB6 /* Preview Assets.xcassets */; };
 		97199AB2279F9DEB00048AB6 /* DemoStoreAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97199AB1279F9DEB00048AB6 /* DemoStoreAppTests.swift */; };
 		97199AD8279FA04B00048AB6 /* DemoStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97199AD0279FA04B00048AB6 /* DemoStore.framework */; };
 		97199ADD279FA04B00048AB6 /* DemoStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97199ADC279FA04B00048AB6 /* DemoStoreTests.swift */; };
-		97199ADE279FA04B00048AB6 /* DemoStore.swift in Headers */ = {isa = PBXBuildFile; fileRef = 97199AD2279FA04B00048AB6 /* DemoStore.swift */; settings = {ATTRIBUTES = (Public, ); }; };
-		97199AE6279FA0AC00048AB6 /* DemoStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97199AD0279FA04B00048AB6 /* DemoStore.framework */; };
-		97199AE7279FA0AC00048AB6 /* DemoStore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 97199AD0279FA04B00048AB6 /* DemoStore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		97199AF3279FA12C00048AB6 /* Offerings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97199AEB279FA12C00048AB6 /* Offerings.swift */; };
-		97199AF4279FA12C00048AB6 /* DemoStoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97199AEC279FA12C00048AB6 /* DemoStoreError.swift */; };
+		97199AF3279FA12C00048AB6 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97199AEB279FA12C00048AB6 /* Products.swift */; };
+		97199AF4279FA12C00048AB6 /* InAppStoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97199AEC279FA12C00048AB6 /* InAppStoreError.swift */; };
 		97199AF5279FA12C00048AB6 /* ProductIDsReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97199AED279FA12C00048AB6 /* ProductIDsReader.swift */; };
 		97199AF6279FA12C00048AB6 /* TransactionsListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97199AEE279FA12C00048AB6 /* TransactionsListener.swift */; };
 		97199AF7279FA12C00048AB6 /* UserEntitlementsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97199AEF279FA12C00048AB6 /* UserEntitlementsFetcher.swift */; };
 		97199AF8279FA12C00048AB6 /* AvailableProductsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97199AF0279FA12C00048AB6 /* AvailableProductsFetcher.swift */; };
 		97199AF9279FA12C00048AB6 /* InAppStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97199AF1279FA12C00048AB6 /* InAppStore.swift */; };
 		97199AFA279FA12C00048AB6 /* Verified.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97199AF2279FA12C00048AB6 /* Verified.swift */; };
+		97F2EB39279FA45E00AAD7B0 /* Products.plist in Resources */ = {isa = PBXBuildFile; fileRef = 97F2EB38279FA45E00AAD7B0 /* Products.plist */; };
+		97F2EB3B279FAC4D00AAD7B0 /* DemoStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97199AD0279FA04B00048AB6 /* DemoStore.framework */; platformFilter = ios; };
+		97F2EB3C279FAC4D00AAD7B0 /* DemoStore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 97199AD0279FA04B00048AB6 /* DemoStore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		97F2EB41279FADF300AAD7B0 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F2EB40279FADF300AAD7B0 /* Store.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +43,7 @@
 			remoteGlobalIDString = 97199ACF279FA04B00048AB6;
 			remoteInfo = DemoStore;
 		};
-		97199AE8279FA0AC00048AB6 /* PBXContainerItemProxy */ = {
+		97F2EB3D279FAC4D00AAD7B0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 97199A95279F9DEA00048AB6 /* Project object */;
 			proxyType = 1;
@@ -52,13 +53,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		97199AEA279FA0AC00048AB6 /* Embed Frameworks */ = {
+		97F2EB3F279FAC4D00AAD7B0 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				97199AE7279FA0AC00048AB6 /* DemoStore.framework in Embed Frameworks */,
+				97F2EB3C279FAC4D00AAD7B0 /* DemoStore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -67,7 +68,7 @@
 
 /* Begin PBXFileReference section */
 		97199A9D279F9DEA00048AB6 /* DemoStoreApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoStoreApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		97199AA0279F9DEA00048AB6 /* DemoStoreAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoStoreAppApp.swift; sourceTree = "<group>"; };
+		97199AA0279F9DEA00048AB6 /* DemoStoreApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoStoreApp.swift; sourceTree = "<group>"; };
 		97199AA2279F9DEA00048AB6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		97199AA4279F9DEB00048AB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97199AA7279F9DEB00048AB6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -75,17 +76,19 @@
 		97199AB1279F9DEB00048AB6 /* DemoStoreAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoStoreAppTests.swift; sourceTree = "<group>"; };
 		97199ACA279F9E6200048AB6 /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
 		97199AD0279FA04B00048AB6 /* DemoStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DemoStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		97199AD2279FA04B00048AB6 /* DemoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoStore.swift; sourceTree = "<group>"; };
 		97199AD7279FA04B00048AB6 /* DemoStoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoStoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		97199ADC279FA04B00048AB6 /* DemoStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoStoreTests.swift; sourceTree = "<group>"; };
-		97199AEB279FA12C00048AB6 /* Offerings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Offerings.swift; sourceTree = "<group>"; };
-		97199AEC279FA12C00048AB6 /* DemoStoreError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoStoreError.swift; sourceTree = "<group>"; };
+		97199AEB279FA12C00048AB6 /* Products.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
+		97199AEC279FA12C00048AB6 /* InAppStoreError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InAppStoreError.swift; sourceTree = "<group>"; };
 		97199AED279FA12C00048AB6 /* ProductIDsReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductIDsReader.swift; sourceTree = "<group>"; };
 		97199AEE279FA12C00048AB6 /* TransactionsListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsListener.swift; sourceTree = "<group>"; };
 		97199AEF279FA12C00048AB6 /* UserEntitlementsFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserEntitlementsFetcher.swift; sourceTree = "<group>"; };
 		97199AF0279FA12C00048AB6 /* AvailableProductsFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvailableProductsFetcher.swift; sourceTree = "<group>"; };
 		97199AF1279FA12C00048AB6 /* InAppStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InAppStore.swift; sourceTree = "<group>"; };
 		97199AF2279FA12C00048AB6 /* Verified.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Verified.swift; sourceTree = "<group>"; };
+		97F2EB38279FA45E00AAD7B0 /* Products.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Products.plist; sourceTree = "<group>"; };
+		97F2EB3A279FAC4500AAD7B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		97F2EB40279FADF300AAD7B0 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				97199AE6279FA0AC00048AB6 /* DemoStore.framework in Frameworks */,
+				97F2EB3B279FAC4D00AAD7B0 /* DemoStore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,7 +151,8 @@
 		97199A9F279F9DEA00048AB6 /* DemoStoreApp */ = {
 			isa = PBXGroup;
 			children = (
-				97199AA0279F9DEA00048AB6 /* DemoStoreAppApp.swift */,
+				97F2EB3A279FAC4500AAD7B0 /* Info.plist */,
+				97199AA0279F9DEA00048AB6 /* DemoStoreApp.swift */,
 				97199AA2279F9DEA00048AB6 /* ContentView.swift */,
 				97199ACA279F9E6200048AB6 /* Configuration.storekit */,
 				97199AA4279F9DEB00048AB6 /* Assets.xcassets */,
@@ -176,15 +180,9 @@
 		97199AD1279FA04B00048AB6 /* DemoStore */ = {
 			isa = PBXGroup;
 			children = (
-				97199AD2279FA04B00048AB6 /* DemoStore.swift */,
-				97199AF0279FA12C00048AB6 /* AvailableProductsFetcher.swift */,
-				97199AEC279FA12C00048AB6 /* DemoStoreError.swift */,
-				97199AF1279FA12C00048AB6 /* InAppStore.swift */,
-				97199AEB279FA12C00048AB6 /* Offerings.swift */,
-				97199AED279FA12C00048AB6 /* ProductIDsReader.swift */,
-				97199AEE279FA12C00048AB6 /* TransactionsListener.swift */,
-				97199AEF279FA12C00048AB6 /* UserEntitlementsFetcher.swift */,
-				97199AF2279FA12C00048AB6 /* Verified.swift */,
+				97F2EB40279FADF300AAD7B0 /* Store.swift */,
+				97F2EB37279FA44200AAD7B0 /* Configuration */,
+				97F2EB36279FA3ED00AAD7B0 /* StoreKit */,
 			);
 			path = DemoStore;
 			sourceTree = "<group>";
@@ -204,6 +202,29 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		97F2EB36279FA3ED00AAD7B0 /* StoreKit */ = {
+			isa = PBXGroup;
+			children = (
+				97199AF1279FA12C00048AB6 /* InAppStore.swift */,
+				97199AEC279FA12C00048AB6 /* InAppStoreError.swift */,
+				97199AF0279FA12C00048AB6 /* AvailableProductsFetcher.swift */,
+				97199AEF279FA12C00048AB6 /* UserEntitlementsFetcher.swift */,
+				97199AEE279FA12C00048AB6 /* TransactionsListener.swift */,
+				97199AF2279FA12C00048AB6 /* Verified.swift */,
+				97199AEB279FA12C00048AB6 /* Products.swift */,
+			);
+			name = StoreKit;
+			sourceTree = "<group>";
+		};
+		97F2EB37279FA44200AAD7B0 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				97199AED279FA12C00048AB6 /* ProductIDsReader.swift */,
+				97F2EB38279FA45E00AAD7B0 /* Products.plist */,
+			);
+			name = Configuration;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -211,7 +232,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				97199ADE279FA04B00048AB6 /* DemoStore.swift in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,12 +245,12 @@
 				97199A99279F9DEA00048AB6 /* Sources */,
 				97199A9A279F9DEA00048AB6 /* Frameworks */,
 				97199A9B279F9DEA00048AB6 /* Resources */,
-				97199AEA279FA0AC00048AB6 /* Embed Frameworks */,
+				97F2EB3F279FAC4D00AAD7B0 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				97199AE9279FA0AC00048AB6 /* PBXTargetDependency */,
+				97F2EB3E279FAC4D00AAD7B0 /* PBXTargetDependency */,
 			);
 			name = DemoStoreApp;
 			productName = DemoStoreApp;
@@ -359,6 +379,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97F2EB39279FA45E00AAD7B0 /* Products.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,7 +398,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				97199AA3279F9DEA00048AB6 /* ContentView.swift in Sources */,
-				97199AA1279F9DEA00048AB6 /* DemoStoreAppApp.swift in Sources */,
+				97199AA1279F9DEA00048AB6 /* DemoStoreApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,8 +416,9 @@
 			files = (
 				97199AF6279FA12C00048AB6 /* TransactionsListener.swift in Sources */,
 				97199AF5279FA12C00048AB6 /* ProductIDsReader.swift in Sources */,
-				97199AF3279FA12C00048AB6 /* Offerings.swift in Sources */,
-				97199AF4279FA12C00048AB6 /* DemoStoreError.swift in Sources */,
+				97199AF3279FA12C00048AB6 /* Products.swift in Sources */,
+				97F2EB41279FADF300AAD7B0 /* Store.swift in Sources */,
+				97199AF4279FA12C00048AB6 /* InAppStoreError.swift in Sources */,
 				97199AF7279FA12C00048AB6 /* UserEntitlementsFetcher.swift in Sources */,
 				97199AF8279FA12C00048AB6 /* AvailableProductsFetcher.swift in Sources */,
 				97199AF9279FA12C00048AB6 /* InAppStore.swift in Sources */,
@@ -425,10 +447,11 @@
 			target = 97199ACF279FA04B00048AB6 /* DemoStore */;
 			targetProxy = 97199AD9279FA04B00048AB6 /* PBXContainerItemProxy */;
 		};
-		97199AE9279FA0AC00048AB6 /* PBXTargetDependency */ = {
+		97F2EB3E279FAC4D00AAD7B0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilter = ios;
 			target = 97199ACF279FA04B00048AB6 /* DemoStore */;
-			targetProxy = 97199AE8279FA0AC00048AB6 /* PBXContainerItemProxy */;
+			targetProxy = 97F2EB3D279FAC4D00AAD7B0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -560,6 +583,7 @@
 				DEVELOPMENT_TEAM = FQPNB63WTA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DemoStoreApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -589,6 +613,7 @@
 				DEVELOPMENT_TEAM = FQPNB63WTA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DemoStoreApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -667,11 +692,9 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 12.1;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.goodrick.DemoStore;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -701,11 +724,9 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 12.1;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.goodrick.DemoStore;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

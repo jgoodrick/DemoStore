@@ -1,5 +1,5 @@
 
-public enum DemoStoreError: Error {
+public enum InAppStoreError: Error {
     case missingProductsPlist
     case invalidProductsPlist
     case emptyProductsPlist
