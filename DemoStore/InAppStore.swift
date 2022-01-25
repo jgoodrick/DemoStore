@@ -69,10 +69,10 @@ actor InAppStore {
                 assertionFailure()
                 return
             }
-            guard verifiedID == product.id else {
-                assertionFailure()
-                return
-            }
+//            guard verifiedID == product.id else {
+//                assertionFailure()
+//                return
+//            }
             state.userEntitlements.autoRenewables.append(verifiedID)
         case .userCancelled:
             return
