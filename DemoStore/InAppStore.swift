@@ -9,14 +9,11 @@ actor InAppStore {
         var pendingPurchases: Products<String> = .init()
     }
     
-    var state: State = .init() {
-        didSet {
-            Task { await onStateChange(state) }
-        }
-    }
+    var state: State = .init()
     
+    private let availableProductsFetcher: AvailableProductsFetcher
     private let userEntitlementsFetcher: UserEntitlementsFetcher
-    private let onStateChange: (State) async -> Void
+    private let onStateChange: @MainActor (State) async -> Void
     
     private var transactionsListener: TransactionsListener?
     
@@ -25,21 +22,31 @@ actor InAppStore {
         self.onStateChange = onStateChange
         self.userEntitlementsFetcher = UserEntitlementsFetcher()
 
-        self.transactionsListener = TransactionsListener(
-            onEvent: { [weak self] in await self?.updateUsersCurrentEntitlements() }
-        )
-
         let assetReader = try ProductIDsReader(
             productsPlist: productsPlist
         )
         
-        let availableProductsFetcher = AvailableProductsFetcher(ids: assetReader.ids)
+        self.availableProductsFetcher = AvailableProductsFetcher(ids: assetReader.ids)
         
+        self.transactionsListener = TransactionsListener(
+            onEvent: { [weak self] in
+                try? await self?.updateState()
+            }
+        )
+
+        do {
+            try await updateState()
+        } catch {
+            assertionFailure(error.localizedDescription)
+        }
+    }
+        
+    private func updateState() async throws {
         switch await availableProductsFetcher.availableProducts() {
         case let .success(products):
             
             let currentEntitlements = await userEntitlementsFetcher.current().wrapped
-
+            
             let initialState = State.init(
                 available: products,
                 userEntitlements: currentEntitlements,
@@ -47,20 +54,26 @@ actor InAppStore {
             )
             
             self.state = initialState
+            
             await onStateChange(initialState)
+            
         case let .failure(storeError):
             throw storeError
         }
     }
-    
-    private func updateUsersCurrentEntitlements() async {
-        self.state.userEntitlements = await userEntitlementsFetcher.current().wrapped
-    }
-    
+        
     public func purchase(_ product: Product) async throws {
         switch try await product.purchase() {
-        case .success:
-            await updateUsersCurrentEntitlements()
+        case let .success(verificationResult):
+            guard let verifiedID = verificationResult.verified?.wrapped.productID else {
+                assertionFailure()
+                return
+            }
+            guard verifiedID == product.id else {
+                assertionFailure()
+                return
+            }
+            state.userEntitlements.autoRenewables.append(verifiedID)
         case .userCancelled:
             return
         case .pending:

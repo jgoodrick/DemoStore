@@ -13,6 +13,22 @@ public final class Store: ObservableObject {
         }
     }
     
+    public func purchase(_ autoRenewable: AutoRenewable) async {
+        guard let inAppStore = inAppStore else {
+            assertionFailure()
+            return
+        }
+        guard let product = await inAppStore.state.available.autoRenewables.first(
+            where: {$0.id == autoRenewable.id}
+        ) else {
+            assertionFailure()
+            return
+        }
+        try? await inAppStore.purchase(product)
+        let newState = await inAppStore.state
+        await handleInAppStoreStateChange(newState)
+    }
+    
     private func createInAppStore() async throws -> InAppStore {
         try await InAppStore(
             productsPlist: Bundle.init(
@@ -60,7 +76,7 @@ public struct AutoRenewable: Identifiable {
     }
 }
 
-@frozen public enum PurchaseState {
+@frozen public enum PurchaseState: Equatable {
     case notPurchased
     case pending(PendingRenewalState)
     case current

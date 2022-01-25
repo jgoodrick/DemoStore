@@ -5,6 +5,7 @@ import DemoStore
 struct ContentView: View {
     
     let subscriptions: [AutoRenewable]
+    let purchaser: Purchaser
     
     var body: some View {
         if subscriptions.isEmpty {
@@ -12,8 +13,10 @@ struct ContentView: View {
         } else {
             List(subscriptions) { subscription in
                 Button(subscription.title) {
-                    print("hit the \(subscription.id) button")
-                }
+                    Task {
+                        await purchaser.purchase(subscription)
+                    }
+                }.disabled(subscription.purchased == PurchaseState.current)
             }
         }
     }
@@ -33,7 +36,12 @@ struct ContentView_Previews: PreviewProvider {
                     ),
                     purchased: .notPurchased
                 )
-            ]
+            ],
+            purchaser: MockPurchaser()
         )
     }
+}
+
+struct MockPurchaser: Purchaser {
+    func purchase(_ autoRenewable: AutoRenewable) async {}
 }

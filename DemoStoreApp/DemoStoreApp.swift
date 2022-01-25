@@ -9,7 +9,16 @@ struct DemoStoreApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView(subscriptions: store.offerings?.autoRenewable ?? [])
+            ContentView(
+                subscriptions: store.offerings?.autoRenewable ?? [],
+                purchaser: store
+            )
         }
     }
 }
+
+protocol Purchaser {
+    func purchase(_ autoRenewable: AutoRenewable) async
+}
+
+extension Store: Purchaser {}
